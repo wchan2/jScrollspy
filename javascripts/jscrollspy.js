@@ -10,10 +10,18 @@
       this.setupEvents();
     },
     setupEvents: function() {
+      var self = this;
+      
       $(document).on('click', this.selector, function(event) {
         event.preventDefault();
-        var sectionDestination = $(event.currentTarget).attr('href');
-        $('body').animate({ scrollTop: $(sectionDestination).offset().top });
+        var sectionDestination = $(event.currentTarget).attr('href')
+          , sectionTopPosition = $(sectionDestination).offset().top;
+        if (self.options.animate) {
+          $('body').animate({ scrollTop: sectionTopPosition });  
+        } else {
+          $('body').scrollTop(sectionTopPosition);
+        }
+        
       });
     }
   };
@@ -24,6 +32,6 @@
 
     return this;
   };
-  $.fn.jScrollspy.options = {};
+  $.fn.jScrollspy.options = { animate: true };
 
 }( jQuery ));
