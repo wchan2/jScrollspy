@@ -67,9 +67,9 @@
 
     return this;
   };
-  $.fn.jScrollspy.options = {
-    animate: true,
-    navHighlight: 'pink'
-  };
+
+  // Default options for the scrollspy plugin
+  // also accepts navHighlight
+  $.fn.jScrollspy.options = { animate: true };
 
 }( jQuery ));
