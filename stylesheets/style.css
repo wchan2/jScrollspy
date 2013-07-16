@@ -16,6 +16,19 @@ nav {
   left: 0;
 }
 
+nav ul {
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  padding: 10px;
+  color: white;
+  text-decoration: none; 
+}
+
+nav li { display: inline; }
+
 nav a.active {
   background-color: #111;
   color: orange;
@@ -39,23 +52,11 @@ nav.side {
   left: 20px;
 }
 
-nav.side li {
+nav.side li { display: block; }
+nav.side a {
   display: block;
-  padding: 5px 0;
+  padding: 5px;
 }
-
-nav ul {
-  padding: 0;
-  margin: 0;
-}
-
-nav a {
-  padding: 10px;
-  color: white;
-  text-decoration: none; 
-}
-
-nav li { display: inline; }
 
 article {
   font-size: 72px;
