@@ -12,18 +12,18 @@
     setupEvents: function() {
       $(document).on('click', this.selector, function(event) {
         event.preventDefault();
-        alert('hello');
+        var sectionDestination = $(event.currentTarget).attr('href');
+        $('body').scrollTop($(sectionDestination).offset().top);
       });
     }
   };
 
-  $.fn.jScrollspy.options = {};
   $.fn.jScrollspy = function(options) {
-    var self = this;
+    var scrollspy = Object.create(jScrollspy);
+    scrollspy.init( this.selector, options );
 
-    return this.each(function() {
-      var scrollspy = Object.create(jScrollspy);
-      scrollspy.init(self.selector, options);
-    });
+    return this;
   };
+  $.fn.jScrollspy.options = {};
+
 }( jQuery ));
