@@ -10,7 +10,7 @@
       this.setupEvents();
     },
     setupEvents: function() {
-      $(document).on('click', this.$selector, function(event) {
+      $(document).on('click', this.selector, function(event) {
         event.preventDefault();
         alert('hello');
       });
