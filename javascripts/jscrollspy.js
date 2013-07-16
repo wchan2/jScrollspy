@@ -13,7 +13,7 @@
       $(document).on('click', this.selector, function(event) {
         event.preventDefault();
         var sectionDestination = $(event.currentTarget).attr('href');
-        $('body').scrollTop($(sectionDestination).offset().top);
+        $('body').animate({ scrollTop: $(sectionDestination).offset().top });
       });
     }
   };
