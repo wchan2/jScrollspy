@@ -2,10 +2,14 @@
   'use strict';
 
   var jScrollspy = {
+    defaults: {
+      animate: true,
+      navHighlight: null
+    },
     init: function(selector, options) {
       this.selector = selector;
       this.$elems   = $(this.selector);
-      this.options  = $.extend({}, $.fn.jScrollspy.options, options);
+      this.options  = $.extend({}, this.defaults, options);
 
       this.setupEvents();
       this.setupSectionPositions();
@@ -32,9 +36,10 @@
           return elemPosition.top <= document.body.scrollTop && document.body.scrollTop < elemPosition.bottom;
         })[0];
 
-        // highlight the row
-        self.$elems.removeClass(self.options.navHighlight);
-        currentSection.$navElem.addClass(self.options.navHighlight);
+        if (self.options.navHighlight) {
+          self.$elems.removeClass(self.options.navHighlight);
+          currentSection.$navElem.addClass(self.options.navHighlight);
+        }
       };
 
       $(document)
@@ -63,13 +68,8 @@
 
   $.fn.jScrollspy = function(options) {
     var scrollspy = Object.create(jScrollspy);
-    scrollspy.init( this.selector, options );
-
+    scrollspy.init(this.selector, options);
     return this;
   };
-
-  // Default options for the scrollspy plugin
-  // also accepts navHighlight
-  $.fn.jScrollspy.options = { animate: true };
 
 }( jQuery ));
