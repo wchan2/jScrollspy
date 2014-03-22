@@ -15,3 +15,5 @@ $('.navscroll').jScrollspy({
 	animate: true
 });
 ```
+
+jScrollspy.js is released under the [MIT License](http://www.opensource.org/licenses/MIT).
